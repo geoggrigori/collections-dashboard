@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Collections Dashboard
 
-## Getting Started
+A clean accounts-receivable dashboard for distributors — the front-end companion
+to the [Collections API](https://github.com/geoggrigori/collections-api) (Ruby on
+Rails). Built with **Next.js 16, React 19, TypeScript and Tailwind CSS**.
 
-First, run the development server:
+It runs fully standalone (bundled demo data + Next.js route handlers), and can
+point at the live Rails API by setting `NEXT_PUBLIC_API_URL`.
+
+## Features
+
+- **AR metrics** — open receivables, overdue exposure, customers, collected.
+- **Customers & invoices** tables with status badges and overdue highlighting.
+- **Remittance matching demo** — paste a free-text payment note and watch it get
+  matched to the customer's open invoices (an LLM does this in the API; this demo
+  uses the same deterministic heuristic the API falls back to).
+- **Built-in API** — `/api/customers`, `/api/invoices`, `/api/metrics`,
+  `/api/remittances/match` (route handlers), so it works on Vercel with no
+  backend.
+
+## Tech stack
+
+| Concern    | Choice                         |
+| ---------- | ------------------------------ |
+| Framework  | Next.js 16 (App Router)        |
+| UI         | React 19, Tailwind CSS         |
+| Language   | TypeScript                     |
+| Hosting    | Vercel                         |
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To connect the real API instead of the bundled demo data, set:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+NEXT_PUBLIC_API_URL=https://your-collections-api.example.com
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+  app/
+    page.tsx                 # dashboard (server component)
+    api/                     # route handlers (customers, invoices, metrics, match)
+  components/                # MetricCard, StatusBadge, RemittanceDemo
+  lib/                       # types, demo data, formatting helpers
+```
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
