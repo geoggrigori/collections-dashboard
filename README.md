@@ -1,5 +1,7 @@
 # Collections Dashboard
 
+**Live demo → https://collections-dashboard-beta.vercel.app**
+
 A clean accounts-receivable dashboard for distributors — the front-end companion
 to the [Collections API](https://github.com/geoggrigori/collections-api) (Ruby on
 Rails). Built with **Next.js 16, React 19, TypeScript and Tailwind CSS**.
