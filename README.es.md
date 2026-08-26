@@ -10,10 +10,6 @@
 <a href="README.es.md"><img src="https://img.shields.io/badge/Español-1987F0?style=for-the-badge" alt="Español"/></a>
 </div>
 
-<h1 align="center">Collections Dashboard</h1>
-<p align="center"><em>Dashboard de cuentas por cobrar para distribuidoras — el frontend de la Collections API</em></p>
-<p align="center"><strong>Datos (demo o API real) → métricas → clientes/facturas → matching de remesas</strong></p>
-
 <div align="center">
 <img src="https://img.shields.io/badge/Next.js_16-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="nextjs"/>
 <img src="https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="react"/>
